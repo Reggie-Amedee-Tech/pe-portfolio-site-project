@@ -120,18 +120,13 @@ body {
     margin: 0 auto;
 }
 
-.card-body {
-    
-}
-
-
 
 
 a {
     color: rgb(210, 191, 44);
     text-decoration: none;
 
-  }
+}
 
 
 nav {
@@ -287,6 +282,12 @@ nav {
         margin-left: 0px;
         margin-right: 0px;
         padding: 10px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .card {
+        width: 80%;
     }
 }
 
