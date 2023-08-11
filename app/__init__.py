@@ -1,9 +1,8 @@
 import os
-from flask import Flask, render_template, request, redirect, Response
+from flask import Flask, render_template, request, redirect, Response, jsonify
 from dotenv import load_dotenv
 from peewee import *
 from playhouse.shortcuts import model_to_dict
-import json
 import datetime
 import folium
 from retry import retry
@@ -206,7 +205,7 @@ def get_time_line_post():
     data = TimelinePost.select().order_by(TimelinePost.created_on.desc())
     data = [model_to_dict(d) for d in data]
 
-    return json.dumps(data, default=str)
+    return jsonify(data)
 
 @app.route('/timeline', methods=['POST', 'GET'])
 def timeline():
