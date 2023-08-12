@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.rtl.min.css" integrity="sha384-PRrgQVJ8NNHGieOA1grGdCTIt4h21CzJs6SnWH4YMQ6G5F5+IEzOHz67L4SQaF0o" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.rtl.min.css"
+        integrity="sha384-PRrgQVJ8NNHGieOA1grGdCTIt4h21CzJs6SnWH4YMQ6G5F5+IEzOHz67L4SQaF0o" crossorigin="anonymous">
     <link lang='sass' rel="stylesheet" href="./static/styles/timelinepage.css">
     <title>Timeline</title>
 </head>
@@ -16,37 +17,45 @@
         <div class="container">
             <div class="timeline-form">
                 <form action="{{ url_for('timeline')}}" method="post">
-                    <div class="form-container" >
+                    <div class="form_container" style="margin-bottom: 50px">
+                    <div class="form-container">
                         <div class="mb-3" style="width: 60%; margin: 0 auto;">
                             <label for="exampleFormControlInput1" class="form-label">Name</label>
                             <input type="text" class="form-control" id="name" name="name" placeholder="John Doe">
                         </div>
                         <div class="mb-3" style="width: 60%; margin: 0 auto;">
                             <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+                            <input type="email" class="form-control" id="email" name="email"
+                                placeholder="name@example.com">
                         </div>
                         <div class="mb-3" style="width: 60%; margin: 0 auto;">
                             <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
                             <textarea class="form-control" id="content" name="content" rows="3"></textarea>
                         </div>
-                </div>
-                <button class="btn btn-primary" type="submit" style="margin: 0 auto; display: block; margin-bottom: 50px;">Submit</button>
+                    </div>
+                    <button class="btn btn-primary" type="submit"
+                        style="margin: 0 auto; display: block;">Submit</button>
+                        </div>
                 </form>
-
+                </div>
+            </div>
             </div>
 
-                {% for d in data %}
-                <div class="card" style="width: 80%; margin: 0 auto; margin-bottom: 20px;">
-                    <div class="card-body">
+            {% for d in data %}
+            <div class="card" style="width: 80%; margin: 0 auto; margin-bottom: 20px; ">
+                <div class="card-body">
+                    <div style="display: flex; flex-direction: row; justify-content: space-between;">
+                        <h5 class="card-title" style="font-size: 20px;">{{d.name}}</h5>
                         <h1 style="font-size: 15px; text-align: end;">{{d.id}}</h1>
-                    <h5 class="card-title" style="font-size: 20px;">{{d.name}}</h5>
+                    </div>
                     <h6 class="card-subtitle mb-2 text-body-secondary" style="font-size: 17px;">{{d.email}}</h6>
                     <p class="card-text" style="font-size: 15px;">{{d.content}}</p>
-                    </div>
                 </div>
-                {% endfor %}
+            </div>
+            
+            {% endfor %}
         </div>
-        </div>
+    </div>
     </div>
 </body>
 
