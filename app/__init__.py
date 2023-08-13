@@ -243,5 +243,3 @@ else:
                         host=os.getenv("MYSQL_HOST"),
                         port=3306
                         )
-    
-print("TEST")
