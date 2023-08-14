@@ -29,7 +29,7 @@ jobs:
           SSH_IP: ${{ secrets.SSH_IP }}
 
       - name: check project 
-        run: cat ~/.ssh/config
+        run:  echo "$(cd ${{ secrets.PROJECT_ROOT }} && pwd)"
 
       - name: Print project root directory
         run: ssh my-vps 'cd ${{ secrets.PROJECT_ROOT }} && pwd'
