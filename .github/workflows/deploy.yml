@@ -29,4 +29,4 @@ jobs:
           SSH_IP: ${{ secrets.SSH_IP }}
 
       - name: Print project root directory
-        run: ssh my-vps 'cd ${{ secrets.PROJECT_ROOT }} && chmod +x redeploy-application.sh &&./redeploy-application.sh'
+        run: ssh my-vps 'cd ${{ secrets.PROJECT_ROOT }} && chmod +x ./redeploy-application.sh'
