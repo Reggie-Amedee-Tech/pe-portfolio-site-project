@@ -28,8 +28,5 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SSH_IP: ${{ secrets.SSH_IP }}
 
-      - name: check project 
-        run:  echo "$(su && cd ${{ secrets.PROJECT_ROOT }} && pwd)"
-
-      - name: Print project root directory
-        run: ssh my-vps 'sudo cd ${{ secrets.PROJECT_ROOT }} && pwd'
+      - name: Deploy Site
+        run: ssh my-vps '~/redeploy-application.sh'
