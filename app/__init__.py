@@ -57,9 +57,10 @@ class TimelinePost(Model):
     class Meta:
         database = mydb
 
+
 mydb.create_tables([TimelinePost])
 
-hobbyImageDir = os.path.join('img')
+projectImageDir = os.path.join('img')
 img = os.path.join('static', 'img')
 
 # Landing page data
@@ -152,16 +153,17 @@ def experiencePage(fellow):
         data="Reginald Amedee"
     return render_template('experiencePage.html', data=data, experience=experience)
 
-@app.route('/<fellow>/hobbies')
+@app.route('/<fellow>/projects')
 def hobbiesPage(fellow):
-    hobbyImage1=os.path.join(hobbyImageDir, 'elden_ring.png')
-    hobbyImage2=os.path.join(hobbyImageDir, 'pic7.png')
+    projectImage1=os.path.join(projectImageDir, 'PokemonCard.png')
+    projectImage2=os.path.join(projectImageDir, 'register_user.png')
+    projectImage3=os.path.join(projectImageDir, 'elden_ring_pic.png')
 
     if fellow == "Reginald Amedee":
         data="Reginald Amedee"
-        hobbies=[{"Hobby_Blurb" : "I love to play video games. My favorite genre of video games are RPGs. Currently playing Diablo 4. I am also on my third playthrough for Elden Ring!", "Hobby_Image": hobbyImage1},
-                {"Hobby_Blurb": "I enjoy calisthenics, which is a form of exercise that prioritizes body movements such as push ups, sit ups, pull ups, etc... In fact, I love it so much that I created an app to track your calisthenics progressions and movements called StrengthTracker.", "Hobby_Image": hobbyImage2},]
-    return render_template('hobbiesPage.html', data=data, hobbies=hobbies)
+        projects=[{"Project_Blurb" : "YourPokedex", "Project_Image": projectImage1, "Project_Url": "https://github.com/Reggie-Amedee-Tech/pokemonreactapp"},
+                {"Project_Blurb": "Calisthenics Prime", "Project_Image": projectImage2, "Project_Url": "https://github.com/Reggie-Amedee-Tech/calisthenics-prime"},{"Project_Blurb": "Reddit-Lite", "Project_Image": projectImage3, "Project_Url": "https://redditprime.netlify.app/"} ]
+    return render_template('projectsPage.html', data=data, projects=projects,)
 
 
 @app.route('/<fellow>/education')

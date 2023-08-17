@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.rtl.min.css"
         integrity="sha384-PRrgQVJ8NNHGieOA1grGdCTIt4h21CzJs6SnWH4YMQ6G5F5+IEzOHz67L4SQaF0o" crossorigin="anonymous">
     <link rel="stylesheet" href="{{url_for('static', filename='styles/hobbiesPage.css')}}">
-    <title>Hobbies</title>
+    <title>Projects</title>
 </head>
 <body>
     <nav>
@@ -19,13 +19,14 @@
     </nav>
 
     <div class="hobbies">
-        <h1 style="text-align: center;">Hobbies</h1>
+        <h1 style="text-align: center;">Projects</h1>
         <div class="hobby-container">
-        {% for x in hobbies %}
+        {% for x in projects %}
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="{{url_for('static', filename=x['Hobby_Image'])}}" src="card img" alt="Card image cap" alt="Card image cap">
+            <img class="card-img-top" src="{{url_for('static', filename=x['Project_Image'])}}" src="card img" alt="Card image cap" alt="Card image cap">
             <div class="card-body">
-            <p class="card-text">{{x["Hobby_Blurb"]}}</p>
+            <p class="card-text">{{x["Project_Blurb"]}}</p>
+            <a href={{x["Project_Url"]}} class="btn btn-primary">View Project</a>
             </div>
         </div>
             {% endfor %}
