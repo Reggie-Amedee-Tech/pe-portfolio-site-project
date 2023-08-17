@@ -8,6 +8,6 @@ source python3-virtualenv/bin/activate
 
 pip3 install -r requirements.txt
 
-docker compose -f docker-compose.prod.yml down 
+docker compose -f docker-compose.prod.yml down --remove-orphans
 
 docker compose -f docker-compose.prod.yml up -d --build
