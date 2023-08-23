@@ -10,4 +10,4 @@ pip3 install -r requirements.txt
 
 docker compose -f docker-compose.prod.yml down 
 
-docker compose -f docker-compose.prod.yml up -d --build --remove-orphans
+docker compose -f docker-compose.prod.yml up -d --build 
